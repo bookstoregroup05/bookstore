@@ -3,8 +3,6 @@
 // html-routes.js - this file offers a set of routes for sending users to the various html pages
 // *********************************************************************************
 
-// Dependencies
-// =============================================================
 var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in

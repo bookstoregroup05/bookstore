@@ -22,11 +22,6 @@ module.exports = function (app) {
             });
     });
 
-    // app.get("/logout", function (req, res) {
-    //     req.logout();
-    //     res.redirect("/login");
-    // });
-
     app
     .route('/logout')
     .get((req, res) => {
@@ -53,7 +48,6 @@ module.exports = function (app) {
     // Get all the users
     app.get("/api/users", function (req, res) {
         db.User.findAll({
-            // include: [db.Shoppingcart, db.Purchase]
             include: [{
                 model: db.Shoppingcart,
                 include: db.Book
@@ -66,7 +60,6 @@ module.exports = function (app) {
         });
     });
 
-    
     // Get one user by its id
     app.get("/api/users/:id", function (req, res) { // Missing: user and password validation
         db.User.findOne({
@@ -85,7 +78,6 @@ module.exports = function (app) {
         });
     });
 
-    
     // Create a new user - For Sign Up
     app.post("/api/users", function (req, res) {
         db.User.create(req.body).then(function (dbUser) {
@@ -96,7 +88,6 @@ module.exports = function (app) {
         });
     });
 
-   
     // Update an user by its id
     app.put("/api/users", function (req, res) {
         db.User.update(
@@ -113,13 +104,6 @@ module.exports = function (app) {
             });
     });
 
-    /* 
-    [
-        1
-    ]
-    */
-
-
     // Delete an user by its id
     app.delete("/api/users/:id", function (req, res) {
         db.User.destroy({
@@ -133,9 +117,4 @@ module.exports = function (app) {
             res.json(dbUser);
         });
     });
-
-    /* 
-        1
-    */
-
 };

@@ -8,11 +8,6 @@ $(document).ready(function () {
 
   // When the form is submitted, we validate there's an email and password entered
 
-  /* $('.btn-default').on('click', (event) => {
-    event.preventDefault();
-    console.log('Clik on btn default');
-  }); */
-
   loginForm.on("submit", function (event) {
     console.log('in click');
     event.preventDefault();
