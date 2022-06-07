@@ -22,10 +22,19 @@ module.exports = function (app) {
             });
     });
 
-    app.get("/logout", function (req, res) {
-        req.logout();
-        res.redirect("/");
-    });
+    // app.get("/logout", function (req, res) {
+    //     req.logout();
+    //     res.redirect("/login");
+    // });
+
+    app
+    .route('/logout')
+    .get((req, res) => {
+          req.logout(function(err) {
+               if (err) { return next(err); }
+           res.redirect('/');
+      });
+  });
 
     app.get("/api/user_data", function (req, res) {
         if (!req.user) {
